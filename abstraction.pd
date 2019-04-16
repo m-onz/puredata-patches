@@ -1,0 +1,9 @@
+#N canvas 151 303 450 300 10;
+#X obj 13 72 picknote;
+#X floatatom 15 121 5 0 0 0 - - -, f 5;
+#X obj 13 47 metro 111;
+#X obj 12 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
