@@ -1,0 +1,51 @@
+#N canvas 195 296 450 348 10;
+#X obj 105 21 adc~;
+#X obj 104 305 dac~;
+#X obj 342 27 loadbang;
+#N canvas 0 0 450 455 GUI 0;
+#X obj 13 249 Timestretch_guitar;
+#X obj 107 110 tgl 15 0 empty vibrato Vibrato 17 7 0 10 -262144 -1
+-1 1 1;
+#X obj 107 134 tgl 15 0 empty portamento Portamento 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 109 169 hsl 128 15 0 10 0 0 empty speed_ctrl Speed -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 212 117 tgl 15 0 empty audioon On/Off 0 -7 0 10 -262144 -1 -1
+1 1;
+#X obj 91 20 inlet~;
+#X obj 105 401 outlet~;
+#X obj 108 225 hsl 128 10 30 70 0 0 empty str_sens Sensitivity -2 -8
+0 10 -262144 -1 -1 6350 1;
+#X obj 88 359 *~;
+#X obj 206 360 *~;
+#X obj 221 339 line~;
+#X obj 103 336 line~;
+#X obj 221 318 pack 0 5;
+#X obj 103 315 pack 0 5;
+#X obj 221 294 expr 1-$f1;
+#X text 184 417 GuitarExtended \, Pierre Massat \, 2012;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 3;
+#X connect 3 0 0 2;
+#X connect 4 0 0 5;
+#X connect 4 0 14 0;
+#X connect 4 0 13 0;
+#X connect 5 0 0 0;
+#X connect 5 0 9 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X connect 10 0 9 1;
+#X connect 11 0 8 1;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;
+#X coords 0 -1 1 1 150 140 2 100 100;
+#X restore 105 110 pd GUI;
+#X msg 345 64 \; vibrato 1 \; portamento 0 \; speed_ctrl 5 \; audioon
+1 \; str_sens 50 \; pd dsp 1 \;;
+#X text 222 325 GuitarExtended \, Pierre Massat \, 2012;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
