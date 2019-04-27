@@ -1,4 +1,4 @@
-#N canvas 541 266 707 470 10;
+#N canvas 531 258 707 470 10;
 #X obj 24 38 openpanel;
 #X obj 24 17 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -10354,7 +10354,7 @@
 -1 -1;
 #X obj 168 283 tabplay~ sample-table2;
 #X msg 149 187 read -skip 24000 ./drums/4.wav sample-table2;
-#X obj 106 64 loadbang;
+#X obj 95 42 loadbang;
 #X obj 199 350 tabread~;
 #X connect 0 0 7 0;
 #X connect 0 0 8 0;
