@@ -1,28 +1,28 @@
-#N canvas 90 95 1358 661 10;
+#N canvas 124 276 431 442 10;
 #X obj 20 48 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X floatatom 116 64 5 0 0 0 - - -, f 5;
-#X obj 19 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 20 287 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 44 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 42 287 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 73 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 68 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 102 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 92 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 116 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 128 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 141 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 155 292 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 163 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 184 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 210 288 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 188 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 20 86 arduinome_step2;
 #X msg 213 64 select \$1;
 #X floatatom 213 44 5 0 0 0 - - -, f 5;
-#X obj 21 603 dac~;
-#X obj 26 577 *~ 0.5;
+#X obj 22 390 dac~;
+#X obj 27 364 *~ 0.5;
 #X obj 115 20 loadbang;
 #X msg 116 41 235;
 #N canvas 0 87 1366 681 drum_machine1 0;
@@ -44733,7 +44733,7 @@
 #X obj 261 11 inlet;
 #X obj 299 11 inlet;
 #X obj 916 450 loadbang;
-#X obj 176 323 outlet~;
+#X obj 176 323 outlet~, f 33;
 #X connect 0 0 5 0;
 #X connect 2 0 56 0;
 #X connect 3 0 2 0;
@@ -44781,7 +44781,8 @@
 #X connect 55 0 13 0;
 #X connect 55 0 7 0;
 #X connect 55 0 0 0;
-#X restore 25 319 pd drum_machine1, f 33;
+#X restore 25 319 pd drum_machine1;
+#X floatatom 216 296 5 0 0 0 - - -, f 5;
 #X connect 0 0 10 0;
 #X connect 1 0 10 1;
 #X connect 2 0 17 0;
@@ -44800,6 +44801,7 @@
 #X connect 10 5 7 0;
 #X connect 10 6 8 0;
 #X connect 10 7 9 0;
+#X connect 10 8 18 0;
 #X connect 11 0 10 2;
 #X connect 12 0 11 0;
 #X connect 14 0 13 1;
