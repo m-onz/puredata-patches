@@ -1,0 +1,5 @@
+http://designingsound.org/2013/04/30/pure-data-wavetable-synth-part-9-fin/
+http://yagizmungan.com/ACinPD.pdf
+http://www.algorithmiccomposer.com/2010/05/algorithmic-composition-tutorial-markov.html
+http://www.algorithmiccomposer.com/
+https://algorithmiccomposition.ru/articles/pure-data.pdf
