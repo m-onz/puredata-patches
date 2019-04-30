@@ -1,0 +1,17 @@
+Instructions:
+-------------
+
+1. Download PD vanilla or PD extended.
+
+2. Open Pure_Data_Destruction-SoVGA-Leonard_Paul.pd in PD.
+
+3. Open a sound or other file from the top right for the audio.
+
+4. Open an index file from the bottom right.
+
+5. Tweak stuff for fun.
+
+
+Leonard Paul
+SoVGA.com
+May 2015

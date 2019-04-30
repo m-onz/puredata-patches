@@ -1,0 +1,222 @@
+#N canvas 582 36 321 589 10;
+#X obj 6 6 cnv 20 305 25 empty empty Pure_Data_Destruction 20 12 2
+20 -191407 -62351 0;
+#X obj 6 32 cnv 20 305 25 empty empty Leonard_Paul 20 12 2 20 -228856
+-62351 0;
+#X obj 6 58 cnv 20 305 522 empty empty SoVGA.com 20 12 2 20 -249661
+-62351 0;
+#N canvas 55 22 1379 850 GUI 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array left_chan 6251 float 2;
+#X coords 0 1 6251 -1 200 140 1 0 0;
+#X restore 15 29 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array index 1455 float 2;
+#X coords 0 1 1455 -1 200 130 1 0 0;
+#X restore 15 352 graph;
+#X obj 113 30 cnv 5 5 300 empty a1pos empty 20 12 0 14 -260097 -66577
+0;
+#X obj 21 353 cnv 5 5 128 empty a3pos empty 20 12 0 14 -258113 -66577
+0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array right_chan 6251 float 2;
+#X coords 0 1 6251 -1 200 140 1 0 0;
+#X restore 15 190 graph;
+#X obj 225 388 hsl 64 15 0.02 2 1 1 \$0-speed empty Speed 10 7 0 10
+-257985 -1 -1 800 1;
+#X obj 225 424 hsl 64 15 10 100000 1 1 \$0-index_roughness empty Roughness
+10 7 0 10 -260097 -1 -1 500 1;
+#X obj 225 101 hsl 64 15 10 100000 1 1 \$0_sound_roughness empty Roughness
+10 7 0 10 -204786 -1 -1 0 1;
+#X obj 222 65 bng 15 250 50 0 \$0-opensound empty Open_sound 17 7 0
+10 -204786 -1 -1;
+#X obj 222 29 bng 15 250 50 0 \$0-openfile empty Open_file 17 7 0 10
+-4034 -1 -1;
+#X obj 222 352 bng 15 250 50 0 \$0-openindex empty Open_index 17 7
+0 10 -4032 -1 -1;
+#X obj 832 332 cnv 15 300 450 empty empty Play_audio 20 12 1 14 -253822
+-66577 0;
+#X obj 845 488 *~;
+#X obj 848 382 hsl 128 15 0.02 2 1 1 empty \$0-speed Speed 10 7 0 10
+-257985 -1 -1 1613 1;
+#X obj 845 429 phasor~;
+#X obj 860 449 receive filesize2;
+#X obj 845 652 *~;
+#X obj 914 594 receive filesize;
+#X obj 845 584 *~ 0.5;
+#X obj 845 611 +~ 0.5;
+#X obj 845 751 s~ chan_L;
+#X obj 918 471 hsl 128 15 10 100000 1 1 empty \$0-index_roughness index_roughness
+10 7 0 10 -260097 -1 -1 1008 1;
+#X obj 845 527 lop~ 1;
+#X obj 917 633 hsl 128 15 10 100000 1 1 empty \$0_sound_roughness sound_roughness
+10 7 0 10 -204786 -1 -1 0 1;
+#X obj 914 653 / 100;
+#X obj 845 689 lop~ 1;
+#X obj 845 558 tabread4~ index;
+#X obj 845 727 tabread4~ left_chan;
+#X obj 975 727 tabread4~ right_chan;
+#X obj 975 751 s~ chan_R;
+#X floatatom 915 513 11 0 0 0 - - -, f 11;
+#X obj 915 491 / 10000;
+#X floatatom 914 675 11 0 0 0 - - -, f 11;
+#X obj 688 332 cnv 15 140 450 empty empty Update_display 20 12 1 14
+-204786 -66577 0;
+#X obj 704 446 snapshot~;
+#X obj 704 473 * 195;
+#X obj 704 498 + 16;
+#X obj 698 628 snapshot~;
+#X obj 698 655 * 195;
+#X obj 698 680 + 16;
+#X msg 698 707 \; a1pos pos \$1 30;
+#X obj 698 422 metro 100;
+#X obj 698 380 loadbang;
+#X obj 698 402 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 310 48 cnv 15 821 280 empty empty Open_audio_file 20 12 0 14
+-262130 -66577 0;
+#X obj 700 243 soundfiler;
+#X obj 700 119 openpanel;
+#X obj 700 84 bng 25 250 50 0 empty \$0-openfile Open_any_file 30 15
+0 20 -4034 -1 -1;
+#X floatatom 700 269 10 0 0 0 - - -, f 10;
+#X obj 700 293 send filesize;
+#X msg 717 165 symbol /Users/lotusaudio/Desktop/PureData/music/grainstates1r/VS-loop3.wav
+;
+#X msg 717 142 set symbol \$1;
+#X obj 318 85 bng 25 250 50 0 empty \$0-opensound Open_sound_file 30
+15 0 20 -4034 -1 -1;
+#X obj 318 122 openpanel;
+#X msg 335 168 symbol /Volumes/BOOTCAMP/Audio/Dubstep/hhat/hhat14.wav
+;
+#X msg 335 145 set symbol \$1;
+#X msg 318 226 read -resize \$1 left_chan right_chan;
+#X msg 700 214 read -resize -raw 0 2 2 b \$1 left_chan right_chan;
+#X obj 310 332 cnv 15 374 270 empty empty Open_index_file 20 12 1 14
+-261682 -66577 0;
+#X obj 324 530 soundfiler;
+#X obj 324 400 openpanel;
+#X obj 324 365 bng 25 250 50 0 empty \$0-openindex Open_file_for_index
+30 15 0 20 -4032 -1 -1;
+#X floatatom 324 555 10 0 0 0 - - -, f 10;
+#X obj 324 576 send filesize2;
+#X msg 335 448 symbol /Volumes/BOOTCAMP/Audio/Dubstep/hhat/hhat00.wav.asd
+;
+#X msg 335 424 set symbol \$1;
+#X msg 324 505 read -resize -raw 0 1 2 b \$1 index;
+#X obj 310 606 cnv 15 374 177 empty empty Record_output 20 12 1 14
+-261234 -66577 0;
+#X obj 388 750 writesf~ 2;
+#X msg 480 717 open output.wav;
+#X obj 438 692 t b b;
+#X msg 588 718 stop;
+#X obj 438 636 tgl 25 0 empty \$0-record Record 30 13 0 20 -258113
+-1 -1 0 1;
+#X msg 438 717 start;
+#X obj 312 676 r~ chan_L;
+#X obj 625 733 r~ chan_R;
+#X obj 438 668 sel 1;
+#X obj 3 505 cnv 15 302 97 empty empty Turn_on_audio 20 12 1 14 -203904
+-66577 0;
+#X msg 125 563 \; pd dsp 1;
+#X obj 125 538 loadbang;
+#X obj 310 3 cnv 15 821 40 empty empty Pure_Data_Destruction 20 12
+0 14 -233017 -66577 0;
+#X obj 3 606 cnv 15 302 177 empty empty Audio_output 20 12 1 14 -232576
+-66577 0;
+#X obj 79 653 r~ chan_L;
+#X obj 148 703 r~ chan_R;
+#X obj 79 720 dac~;
+#X obj 185 670 *~;
+#X obj 200 647 r \$0-mono;
+#X text 802 4 Open source \, public domain \, attribution requested
+;
+#X msg 704 525 \; a3pos pos \$1 353;
+#X text 904 23 2015 - Leonard Paul of SoVGA.com;
+#X obj 359 699 *~;
+#X obj 374 676 r \$0-mono;
+#X text 1134 14 Instructions:;
+#X text 1134 41 1 Open with PD vanilla or extended.;
+#X text 1133 62 2 Open file or sound from top right.;
+#X text 1132 83 3 Open index file from bottom right.;
+#X text 1133 107 4 Play with sound.;
+#X text 1133 130 5 Record if you like.;
+#X connect 12 0 22 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 14 0 34 0;
+#X connect 15 0 12 1;
+#X connect 16 0 25 0;
+#X connect 17 0 16 1;
+#X connect 18 0 19 0;
+#X connect 19 0 16 0;
+#X connect 19 0 37 0;
+#X connect 21 0 31 0;
+#X connect 22 0 26 0;
+#X connect 23 0 24 0;
+#X connect 24 0 32 0;
+#X connect 25 0 28 0;
+#X connect 25 0 27 0;
+#X connect 26 0 18 0;
+#X connect 27 0 20 0;
+#X connect 28 0 29 0;
+#X connect 30 0 22 1;
+#X connect 31 0 30 0;
+#X connect 32 0 25 1;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 88 0;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 41 0 34 0;
+#X connect 41 0 37 0;
+#X connect 42 0 43 0;
+#X connect 43 0 41 0;
+#X connect 45 0 48 0;
+#X connect 46 0 51 0;
+#X connect 46 0 57 0;
+#X connect 47 0 46 0;
+#X connect 48 0 49 0;
+#X connect 50 0 57 0;
+#X connect 51 0 50 0;
+#X connect 52 0 53 0;
+#X connect 53 0 55 0;
+#X connect 53 0 56 0;
+#X connect 54 0 56 0;
+#X connect 55 0 54 0;
+#X connect 56 0 45 0;
+#X connect 57 0 45 0;
+#X connect 59 0 62 0;
+#X connect 60 0 66 0;
+#X connect 60 0 65 0;
+#X connect 61 0 60 0;
+#X connect 62 0 63 0;
+#X connect 64 0 66 0;
+#X connect 65 0 64 0;
+#X connect 66 0 59 0;
+#X connect 69 0 68 0;
+#X connect 70 0 73 0;
+#X connect 70 1 69 0;
+#X connect 71 0 68 0;
+#X connect 72 0 76 0;
+#X connect 73 0 68 0;
+#X connect 74 0 68 0;
+#X connect 74 0 90 0;
+#X connect 75 0 68 1;
+#X connect 76 0 70 0;
+#X connect 76 1 71 0;
+#X connect 79 0 78 0;
+#X connect 82 0 84 0;
+#X connect 82 0 85 0;
+#X connect 83 0 84 1;
+#X connect 85 0 84 1;
+#X connect 86 0 85 1;
+#X connect 90 0 68 1;
+#X connect 91 0 90 1;
+#X coords 0 -1 1 1 305 500 2 0 0;
+#X restore 6 80 pd GUI;
+#X obj 226 38 tgl 35 0 \$0-record empty Rec 8 17 0 10 -258113 -1 -1
+0 1;
+#X obj 269 38 tgl 35 0 \$0-mono empty Mono 5 17 0 10 -232576 -1 -1
+0 1;
